@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System - Medical Records</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f3f4f6;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .medical-record-card {
+            transition: all 0.3s ease;
+        }
+        .medical-record-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-2xl font-bold text-gray-800">Patient Medical Records</h1>
+                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200">
+                    <i class="bi bi-plus-lg mr-2"></i>Add New Record
+                </button>
+            </div>
+
+            <!-- Tabs -->
+            <div class="border-b border-gray-200 mb-6">
+                <div class="flex space-x-8">
+                    <button class="tab-btn text-blue-600 border-b-2 border-blue-600 px-4 py-2 font-medium">Current Symptoms</button>
+                    <button class="tab-btn text-gray-500 hover:text-gray-700 px-4 py-2 font-medium">Medical History</button>
+                    <button class="tab-btn text-gray-500 hover:text-gray-700 px-4 py-2 font-medium">Medications</button>
+                    <button class="tab-btn text-gray-500 hover:text-gray-700 px-4 py-2 font-medium">Allergies</button>
+                    <button class="tab-btn text-gray-500 hover:text-gray-700 px-4 py-2 font-medium">Family History</button>
+                </div>
+            </div>
+
+            <!-- Current Symptoms Section -->
+            <div class="tab-content active">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="medical-record-card bg-white p-6 rounded-lg border border-gray-200">
+                        <h3 class="text-lg font-semibold mb-4">Symptoms Information</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Description of Problem</label>
+                                <textarea class="w-full p-2 border border-gray-300 rounded-md" rows="3"></textarea>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Duration</label>
+                                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Severity</label>
+                                    <select class="w-full p-2 border border-gray-300 rounded-md">
+                                        <option>Mild</option>
+                                        <option>Moderate</option>
+                                        <option>Severe</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="medical-record-card bg-white p-6 rounded-lg border border-gray-200">
+                        <h3 class="text-lg font-semibold mb-4">Additional Details</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Onset</label>
+                                <input type="date" class="w-full p-2 border border-gray-300 rounded-md">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Contributing Factors</label>
+                                <input type="text" class="w-full p-2 border border-gray-300 rounded-md">
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <input type="checkbox" class="rounded text-blue-600">
+                                <label class="text-sm text-gray-700">Recurring Symptom</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex justify-end space-x-4 mt-6">
+                    <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">Cancel</button>
+                    <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Save Record</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Timeline -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-xl font-bold mb-6">Medical History Timeline</h2>
+            <div class="space-y-6">
+                <div class="flex">
+                    <div class="flex flex-col items-center mr-4">
+                        <div class="w-3 h-3 bg-blue-600 rounded-full"></div>
+                        <div class="w-0.5 h-full bg-gray-200"></div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="text-lg font-semibold">Routine Checkup</h4>
+                                    <p class="text-sm text-gray-600">Dr. Sarah Johnson</p>
+                                </div>
+                                <span class="text-sm text-gray-500">2 days ago</span>
+                            </div>
+                            <p class="mt-2 text-gray-700">Regular health checkup with normal vital signs. Prescribed routine medications.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex">
+                    <div class="flex flex-col items-center mr-4">
+                        <div class="w-3 h-3 bg-blue-600 rounded-full"></div>
+                        <div class="w-0.5 h-full bg-gray-200"></div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="text-lg font-semibold">Lab Tests</h4>
+                                    <p class="text-sm text-gray-600">Clinical Laboratory</p>
+                                </div>
+                                <span class="text-sm text-gray-500">1 week ago</span>
+                            </div>
+                            <p class="mt-2 text-gray-700">Complete blood count and metabolic panel completed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                // Remove active classes
+                tabBtns.forEach(b => b.classList.remove('text-blue-600', 'border-b-2', 'border-blue-600'));
+                tabContents.forEach(c => c.classList.remove('active'));
+
+                // Add active classes
+                btn.classList.add('text-blue-600', 'border-b-2', 'border-blue-600');
+                tabContents[index].classList.add('active');
+            });
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
